@@ -17,7 +17,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->with(['employer', 'tags'])->get()->groupBy('featured');
+        $jobs = Job::with(['employer', 'tags'])->get()->groupBy('featured');
 
         return view('jobs.index', [
             'jobs' => $jobs[0],
@@ -59,38 +59,6 @@ class JobController extends Controller
             }
         }
 
-        return redirect('/')->with('success', 'Job posted successfully!');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Job $job)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Job $job)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateJobRequest $request, Job $job)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Job $job)
-    {
-        //
+        return redirect('/jobs')->with('success', 'Job posted successfully!');
     }
 }

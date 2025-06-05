@@ -13,16 +13,17 @@
 <body class="bg-[#060606]  text-white font-mono pt-3 pb-20 px-10">
     <div class="px-10">
         <nav class="flex justify-between items-center py-4 border-b border-white/10">
-            <a href="/" class="hover:text-blue-400 transition-colors duration-300 font-bold max-h-10 flex">
-                <img src="{{Vite::asset('resources/images/logo.svg ')}}" alt="" class="w-5">
-                <h2 class="pl-2">Get2Work</h2>
-            </a>
+            @guest
+                <x-logo link="/"/>
+            @endguest
+            @auth
+                <x-logo link="/jobs" />
+            @endauth
             <div class="space-x-6 font-bold">
                 <a href="#" class="hover:text-blue-600 transition-colors duration-300">Jobs</a>
                 <a href="#" class="hover:text-blue-600 transition-colors duration-300">Careers</a>
                 <a href="#" class="hover:text-blue-600 transition-colors duration-300">Salaries</a>
-                <a href="#" class="hover:text-blue-600 transition-colors duration-300">Companies</a>
-            </div>
+                <a href="#" class="hover:text-blue-600 transition-colors duration-300">Companies</a>      </div>
             
             @auth
                 <div class="space-x-6 font-bold flex">
