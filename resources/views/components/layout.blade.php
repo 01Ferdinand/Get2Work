@@ -25,7 +25,7 @@
                 <a href="#" class="hover:text-blue-600 transition-colors duration-300">Careers</a>
                 <a href="#" class="hover:text-blue-600 transition-colors duration-300">Salaries</a>
                 <a href="#" class="hover:text-blue-600 transition-colors duration-300">Companies</a>      </div>
-            
+            {{-- Authorized Users --}}
             @auth
                 <div class="space-x-6 font-bold flex">
                     <a href="/jobs/create" class="hover:text-blue-400 transition-colors duration-300">Post a Job</a>

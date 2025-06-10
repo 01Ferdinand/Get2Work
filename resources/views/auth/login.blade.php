@@ -8,6 +8,6 @@
         <div class="text-center">
             <x-form.button>Login</x-form.button>
         </div>
-
+        
     </x-form.form>
 </x-layout> 
