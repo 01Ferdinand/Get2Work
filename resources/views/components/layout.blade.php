@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts,googleapis.com/css?family=Hanken+Grotesk:wgh@400;500;600$display=swap">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#060606]  text-white font-mono pt-3 pb-20 px-10">
     <div class="px-10">
