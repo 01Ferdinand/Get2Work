@@ -4,9 +4,14 @@ WORKDIR /var/www/html
 
 COPY . .
 
+# Install dependencies
+RUN npm install && npm run build
+
+
 RUN composer install \
     && php artisan config:clear \
     && php artisan route:clear
+
 
 RUN docker-php-ext-install pdo pdo_mysql
 
