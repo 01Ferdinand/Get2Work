@@ -1,3 +1,14 @@
+# Stage 1: Build assets
+FROM node:18-alpine as build
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Stage 2
 FROM laravelsail/php82-composer
 
 WORKDIR /var/www/html
@@ -8,9 +19,6 @@ COPY . .
 RUN composer install \
     && php artisan config:clear \
     && php artisan route:clear
-
-# Install dependencies
-RUN npm install && npm run build
 
 RUN docker-php-ext-install pdo pdo_mysql
 
