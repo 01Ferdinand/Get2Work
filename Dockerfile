@@ -49,11 +49,6 @@ COPY --from=frontend /app/public/build ./public/build
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Laravel setup (skip if handled by your deploy script)
-RUN php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache
-
 
 EXPOSE 8000
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=${PORT}"]
